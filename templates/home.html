@@ -1,14 +1,10 @@
-{% extends '_base.html' %}
+{% extends '_master.html' %}
 
 {% block body %}
 
-<header id="hero">
-    <div class="overlay"></div>
-</header>
-
 <section id="about">
-    <h2>About OmarTech</h2>
-    <p class="text lead">
+    <h2 class="text-center text-uppercase mb-3">About <span class="logo">OmarTech</span></h2>
+    <p class="lead text-center">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         Explicabo maxime aspernatur consectetur dolorum voluptate labore eum
         minus facere illum quasi saepe eaque magni eveniet excepturi nobis totam asperiores,
@@ -18,23 +14,30 @@
 </section>
 
 <section id="positions">
-    <h2>Open Positions</h2>
+    <h2 class="text-center text-uppercase mb-3">Open <span class="logo">Positions</span></h2>
+
     <div class="card">
-        <h5 class="card-title">TODO - Show the jops here</h5>
-        <button class="card-btn">Contact Us</button>
+        <ul class="list-group list-group-flush">
+            {% for job in jobs %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="lead mb-1">{{ job.title }}</p>
+                    <p class="mb-0 fst-italic ps-2">
+                        <span>Location: {{ job.location }}</span>
+                        <br>
+                        <span>Salary: {{ job.salary }}</span>
+                    </p>
+                </div>
+                <a href="/" class="btn btn-outline-primary">Applay</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="card-footer text-center">
+            <a href="/" class="btn btn-primary btn-lg">Contact Us</a>
+        </div>
+
     </div>
-    <div class="card">
-        <h5 class="card-title">TODO - Show the jops here</h5>
-        <button class="card-btn">Contact Us</button>
-    </div>
-    <div class="card">
-        <h5 class="card-title">TODO - Show the jops here</h5>
-        <button class="card-btn">Contact Us</button>
-    </div>
-    <div class="card">
-        <h5 class="card-title">TODO - Show the jops here</h5>
-        <button class="card-btn">Contact Us</button>
-    </div>
+
 </section>
 
 {% endblock %}
